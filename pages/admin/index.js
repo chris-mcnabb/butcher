@@ -20,7 +20,7 @@ const Login = () => {
                 setIsLoading(false);
             }
         });
-    }, []);
+    }, [router]);
     if (isLoading) {
         return <p>Loading...</p>;
     }

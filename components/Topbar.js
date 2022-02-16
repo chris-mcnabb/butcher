@@ -24,7 +24,7 @@ export default function Topbar() {
                 </div>
                 <div className={styles.topRight}>
                     <div className={styles.topbarIconContainer}>
-                        <Link href="/admin/newproduct">
+                        <Link passHref="/admin/newproduct">
                             <button className={styles.productAddButton2}>Nieuw</button>
                         </Link>
                         <button className={styles.logoutButton}>

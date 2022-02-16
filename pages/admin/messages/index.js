@@ -48,7 +48,7 @@ const MessageList = ({messages}) => {
             renderCell: (params) => {
                 return (
                     <>
-                        <Link href={"/admin/messages/" + params.row._id}>
+                        <Link passHref={"/admin/messages/" + params.row._id}>
                            <MailOutlined className={styles.mailListEdit}/>
                         </Link>
                    <DeleteOutline className={styles.mailListDelete} onClick={() => handleDelete(params.row._id)}/>

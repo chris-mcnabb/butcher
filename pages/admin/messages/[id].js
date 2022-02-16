@@ -26,7 +26,7 @@ const Message = () => {
 
                 <div className={styles.mailTitleContainer}>
                     <h1 className={styles.mailTitle}>Email</h1>
-                    <Link href="/admin/messages">
+                    <Link passHref="/admin/messages">
                         <button className={styles.messageDeleteButton} value="delete">Terug</button>
                     </Link>
                 </div>

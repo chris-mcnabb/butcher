@@ -55,7 +55,7 @@ const ProductList = ({products}) => {
             renderCell: (params) => {
                 return (
                     <>
-                        <Link href={"/admin/products/[id]"} as={`/admin/products/${params.row._id}`}>
+                        <Link passHref={"/admin/products/[id]"} as={`/admin/products/${params.row._id}`}>
                            <Edit className={styles.productListEdit}/>
                         </Link>
                         <DeleteOutline
