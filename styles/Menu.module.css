@@ -1,0 +1,26 @@
+.container {
+    width: 90%;
+
+}
+.wrapper {
+    display: flex;
+}
+.left {
+
+}
+.right{
+
+}
+@media screen and (max-width: 500px) {
+    .container {
+        width: 85%;
+        z-index: 0;
+    }
+    .wrapper{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+}

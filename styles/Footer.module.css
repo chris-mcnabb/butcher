@@ -1,0 +1,44 @@
+.container {
+    height: 200px;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.0),
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.6)
+
+    );
+    display: flex;
+    padding: 30px 30px;
+    color: white;
+    z-index: 1;
+}
+.contactContainer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.addressContainer {
+
+}
+.contactInfo {
+    font-weight: 300;
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 500px) {
+    .container{
+        height: 100px;
+        padding: 20px 30px;
+    }
+    .addressContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .contactInfo    {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+}

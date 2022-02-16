@@ -1,0 +1,46 @@
+.confirmContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirmBottom {
+    display: flex;
+    margin-top: 25px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.confirm, .decline {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.confirm{
+    margin-right: 10px;
+    background-color: green;
+}
+
+.decline {
+    background-color: red;
+}
+.successContainer {
+    display: flex;
+    flex-direction: column;
+}
+.success {
+    color: green;
+}
+.terug {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: darkorange;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}

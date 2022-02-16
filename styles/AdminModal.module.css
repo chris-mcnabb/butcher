@@ -1,0 +1,105 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    overflow: visible;
+    top: 50%;
+    left: 50%;
+    width: 50vw;
+    min-height: 45vh;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    border-radius: 10px;
+    z-index: 999;
+    overflow-y: scroll;
+
+    background: lightgrey;
+
+}
+
+.wrapper {
+    width: 100%;
+}
+
+.top {
+    margin-top: 10px;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.buttonContainer {
+
+}
+.adminModalButton {
+    border: none;
+    padding: 10px 20px;
+    display: flex;
+
+    align-items: center;
+    background-color: transparent;
+    font-size: 25px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.adminModalButton:hover {
+    font-weight: 800;
+}
+.bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.confirmContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirmBottom {
+    display: flex;
+    margin-top: 25px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.confirm, .decline {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.confirm{
+    margin-right: 10px;
+    background-color: green;
+}
+
+.decline {
+    background-color: red;
+}
+.successContainer {
+    display: flex;
+    flex-direction: column;
+}
+.success {
+    color: green;
+}
+.terug {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: darkorange;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
+

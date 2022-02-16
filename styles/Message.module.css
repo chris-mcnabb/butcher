@@ -1,0 +1,159 @@
+.container {
+    display: flex;
+}
+.mail {
+    flex: 4;
+    padding: 20px;
+}
+
+.mailTitleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.messageDeleteButton {
+    border: none;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.mailTop {
+    display: flex;
+    font-size: 20px;
+}
+
+.mailTopLeft,
+.mailTopRight {
+    flex: 1;
+}
+
+.mailTopLeft {
+    padding: 20px;
+    margin: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.mailTopRight {
+    padding: 20px;
+    margin: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.mailInfoImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.mailInfoTop {
+    display: flex;
+    align-items: center;
+}
+
+.mailName {
+    font-weight: 600;
+}
+
+.mailInfoBottom {
+    margin-top: 10px;
+}
+
+.mailInfoItem {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mailMessageItem {
+    width: 80%;
+}
+
+.mailInfoValue {
+    font-weight: 300;
+
+}
+
+.mailBottom {
+
+    padding: 20px;
+    margin: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.mailForm {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mailFormLeft {
+    display: flex;
+    flex-direction: column;
+}
+
+.mailFormLeft > label {
+    margin-bottom: 10px;
+    color: gray;
+}
+.mailFormLeft > span {
+    margin-bottom: 10px;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    padding: 5px;
+    border-bottom: 1px solid gray;
+}
+
+.mailFormLeft > input {
+    margin-bottom: 10px;
+    font-size: 18px;
+    border: none;
+    padding: 5px;
+    border-bottom: 1px solid gray;
+}
+.mailFormLeft > input:focus {
+    outline: none;
+}
+.mailFormLeft >select{
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.mailUploadImg{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: contain;
+    margin-right: 20px;
+}
+
+.mailFormRight{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.mailUpload{
+    display: flex;
+    align-items: center;
+}
+
+.mailButton{
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: darkorange;
+    color:white;
+    font-weight: 600;
+    cursor: pointer;
+}

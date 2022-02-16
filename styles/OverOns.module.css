@@ -1,0 +1,152 @@
+.container {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    padding: 10px 20px;
+}
+.leftWrapper {
+    flex: 1;
+    background-color: rgba(119, 136, 153, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.rightWrapper {
+    flex: 1;
+    max-height: 300px;
+    width: 100%;
+    padding: 20px 30px;
+    border-radius: 10px;
+    display: flex;
+    margin-left: 50px;
+    align-items: center;
+    justify-content: space-between;
+    letter-spacing: 1.5px;
+    font-size: 20px;
+}
+.title {
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+}
+.contactForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.contactItem {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+.contactMessage {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+.contactLabel {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.contactInput {
+    height: 30px;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: white;
+    background: transparent;
+    border-radius: 7px;
+    border: 1px solid lightgray;
+}
+.contactInput:focus {
+    outline: none;
+    border: 2px solid darkgray;
+}
+.contactInput::placeholder{
+    color: rgba(255, 255, 255, 0.5);
+}
+.contactTextArea {
+    height: 100px;
+    padding: 10px;
+    color: white;
+    background: transparent;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    border: 1px solid lightgray;
+}
+.contactTextArea:focus {
+    outline: none;
+    border: 2px solid darkgray;
+}
+.contactTextArea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+.contactButton {
+    width: 40%;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    background-color: darkred;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+.success {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+
+}
+@media screen and (max-width: 500px) {
+    .container{
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+    }
+    .leftWrapper{
+        margin-right: 0;
+        text-align: center;
+        width: 80%;
+        height: 80%;
+        background-color: rgba(119, 136, 153, 0.8);
+    }
+    .rightWrapper{
+        display: none;
+
+    }
+    .title {
+        font-size: 30px;
+        font-weight: 500;
+    }
+    .contactForm{
+        flex-direction: column;
+        align-items: center;
+        margin-top: 25px;
+    }
+    .contactItem{
+        align-items: center;
+    }
+    .contactMessage{
+        width: 300px;
+    }
+    .contactLabel{
+        display: none;
+    }
+    .contactInput::placeholder{
+        font-size: 18px;
+        text-align: center;
+    }
+    .contactTextArea::placeholder{
+        font-size: 18px;
+        text-align: center;
+    }
+
+}

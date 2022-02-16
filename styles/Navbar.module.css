@@ -1,0 +1,75 @@
+.container {
+    height: 100px;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.0)
+
+    );
+    display: flex;
+    align-items: center;
+    padding: 60px 30px 30px;
+    position: relative;
+    z-index: 1;
+}
+.left {
+    flex: 4;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+
+}
+.logoImg {
+
+    border-radius: 5px;
+
+}
+.logo {
+    font-family: Rock Salt, cursive ;
+    margin-left: 25px;
+    color: white;
+    font-size: 35px;
+    letter-spacing: 1.5px;
+}
+
+.right {
+    flex: 1;
+}
+
+.socialContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.socialIcon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    cursor: pointer;
+}
+@media screen and (max-width: 500px) {
+    .container {
+        height: 20px;
+        flex-direction: column;
+    }
+
+    .logoImg{
+        display: none !important;
+    }
+    .logo{
+        font-size: 20px;
+        margin-left: -55px;
+
+
+    }
+}
