@@ -108,7 +108,7 @@ const OverOns = () => {
                     Ik maak ook heerlijke ambachtelijke soepen,kant en klare kipsaté en kant en klare hachee 😋<br/>
 
                     Ook voor al uw BBQ vlees/vis kunt u bij mij terecht.
-                    Van gemarineerde speklapjes tot scampi's.
+                    Van gemarineerde speklapjes tot scampi&apos;s.
                     Van kipsaté tot hamburgers.
                     Van biefstuk spiesen tot zalm spiesen.
                     Van varkenshaas spiesen tot Caribische kipsnitzels.
