@@ -86,7 +86,7 @@ const MessageList = ({messages}) => {
 };
 export const getServerSideProps = async (context) =>{
     const session = await getSession({req: context.req})
-    const message = await axios.get("http://localhost:3000/api/mail");
+    const message = await axios.get("/api/mail");
     if (!session) {
         return {
             redirect: {

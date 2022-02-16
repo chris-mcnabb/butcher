@@ -99,7 +99,7 @@ const ProductList = ({products}) => {
 };
 export const getServerSideProps = async (context) =>{
     const session = await getSession({req: context.req})
-    const res = await axios.get("http://localhost:3000/api/products");
+    const res = await axios.get("/api/products");
     if (!session) {
         return {
             redirect: {
