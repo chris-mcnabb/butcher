@@ -32,7 +32,7 @@ const Login = () => {
                 redirect: false,
                 username:  username,
                 password:   password,
-                callbackUrl: "http://localhost:3000/admin/products",
+
 
             });
             !res.error && router.push("/admin/products")

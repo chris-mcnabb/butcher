@@ -23,7 +23,7 @@ import axios from "axios";
 export const addProduct = async (product, dispatch) => {
     dispatch(addProductStart());
     try{
-        const res = await axios.post(`http://localhost:3000/api/products/`, product)
+        const res = await axios.post(`/api/products/`, product)
 
         dispatch(addProductSuccess(res.data))
         console.log(res.data)
@@ -38,7 +38,7 @@ export const addProduct = async (product, dispatch) => {
 export const updateProduct = async (dispatch, id, product) => {
     dispatch(updateProductStart());
     try{
-        const res = await axios.put(`http://localhost:3000/api/products/${id}`, product
+        const res = await axios.put(`/api/products/${id}`, product
 
         );
         dispatch(updateProductSuccess(id, product));
