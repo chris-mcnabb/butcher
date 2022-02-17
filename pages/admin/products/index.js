@@ -3,7 +3,6 @@ import styles from "../../../styles/ProductList.module.css"
 import React, {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {useRouter} from "next/router";
-import Link from "next/link";
 import Topbar from "../../../components/Topbar";
 import Sidebar from "../../../components/Sidebar";
 import axios from "axios";

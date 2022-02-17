@@ -10,15 +10,28 @@ import {getMailSuccess} from "../../../redux/mailRedux";
 import {getSession} from "next-auth/react";
 import {DeleteOutline, MailOutlined} from "@material-ui/icons";
 import AdminModal from "../../../components/AdminModal";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Head from "next/head";
 
-const MessageList = ({messages}) => {
+const MessageList = () => {
     const [showModal, setShowModal] = useState(false)
     const [messageId, setMessageId] = useState("")
+    const [messages, setMessages] = useState([])
     const dispatch = useDispatch()
     const router = useRouter();
     dispatch(getMailSuccess(messages))
+    useEffect(()=>{
+        const getProducts = async() => {
+            try{
+                const res = await axios.get(`/api/mail/`)
+
+                setMessages(res.data)
+            }catch(err){
+                console.log(err)
+            }
+        }
+        getProducts()
+    },[])
     const handleDelete = (id) => {
         setMessageId(id)
         setShowModal(true);
@@ -90,7 +103,7 @@ const MessageList = ({messages}) => {
 };
 export const getServerSideProps = async (context) =>{
     const session = await getSession({req: context.req})
-    const message = await axios.get(process.env.VERCEL_URL+"/api/mail");
+
     if (!session) {
         return {
             redirect: {
@@ -103,7 +116,7 @@ export const getServerSideProps = async (context) =>{
     return{
         props:{
             session,
-            messages: message.data
+
         }
     };
 };
