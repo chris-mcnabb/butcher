@@ -8,7 +8,7 @@ const handler = async(req, res) => {
 
     const {method} = req;
 
-    dbConnect()
+  await  dbConnect()
 
     const contactEmail =  await nodemailer.createTransport({
         service: "gmail",

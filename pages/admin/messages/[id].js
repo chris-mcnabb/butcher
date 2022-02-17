@@ -74,8 +74,6 @@ const Message = () => {
         </>
     );
 };
-
-export default Message;
 export const getServerSideProps = async (context) => {
     const session = await getSession({req: context.req})
     if (!session) {
@@ -86,7 +84,10 @@ export const getServerSideProps = async (context) => {
             },
         };
     }
-return{
+    return{
         props: {session}
+    }
 }
-}
+
+
+export default Message;
