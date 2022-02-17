@@ -2,13 +2,13 @@ import styles from "../styles/Topbar.module.css"
 import { Settings } from "@material-ui/icons";
 import Image from "next/image"
 import steak from "../public/img/steak.jpeg"
-import Link from "next/link"
+import {useRouter} from "next/router"
 import { signOut } from "next-auth/react"
 import React from "react";
 
 
 export default function Topbar() {
-
+const router = useRouter()
     return (
         <div className={styles.topbar}>
             <Image src={steak}
@@ -24,9 +24,9 @@ export default function Topbar() {
                 </div>
                 <div className={styles.topRight}>
                     <div className={styles.topbarIconContainer}>
-                        <Link href="/admin/newproduct">
-                            <button className={styles.productAddButton2}>Nieuw</button>
-                        </Link>
+
+                            <button className={styles.productAddButton2} onClick={()=>router.push("/admin/newproduct")}>Nieuw</button>
+
                         <button className={styles.logoutButton}>
                             <div className={styles.settingsContainer}>
                                 <span className={styles.logOut} onClick={()=>signOut()}>Logout</span>
