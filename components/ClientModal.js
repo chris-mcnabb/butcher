@@ -10,20 +10,7 @@ import axios from "axios";
 
 const ClientModal = ({showModal, setShowModal, title, size}) => {
 
-    const dispatch = useDispatch()
 
-    useEffect(() =>{
-        const getProducts = async() => {
-            try{
-                const res = await axios.get(process.env.VERCEL_URL+"/api/products");
-                console.log(res.data)
-                dispatch(getProductSuccess(res.data))
-            }catch(err){
-
-            }
-        }
-        getProducts()
-    },[dispatch])
 
     const handleClick = () => {
         setShowModal(!showModal)

@@ -9,7 +9,7 @@ const Menu = () => {
     useEffect(()=>{
         const getProducts = async() => {
             try{
-                const res = await axios.get(process.env.VERCEL_URL+`/api/products/`)
+                const res = await axios.get(`/api/products/`)
                 console.log(res.data)
                 setProducts(res.data)
             }catch(err){

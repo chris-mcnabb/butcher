@@ -23,7 +23,7 @@ const OverOns = () => {
         e.preventDefault()
 
         try{
-            const res = await axios.post(process.env.VERCEL_URL+"/api/mail",
+            const res = await axios.post("/api/mail",
                 value)
 
               if(res.data.status === "Message Sent"){

@@ -40,7 +40,7 @@ const handler = async(req, res) => {
         const {firstName, lastName, email, phone, subject, message} = req.body
         const mail = {
             from: firstName, lastName,
-            to: "chrismcnabb6691@gmail.com",
+            to: "DeMobieleSlager43@gmail.com",
             subject: subject,
             html: `<p>Name: ${firstName} ${lastName}</p>
            <p>Email: ${email}</p>

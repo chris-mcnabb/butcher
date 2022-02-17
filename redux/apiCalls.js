@@ -66,7 +66,7 @@ export const deleteMessage = async (id, dispatch) => {
 export const deleteProduct = async (id, dispatch) => {
     dispatch(deleteProductStart());
     try{
-        const res = await axios.delete(process.env.VERCEL_URL+`/api/products/${id}`,
+        const res = await axios.delete(`/api/products/${id}`,
 
         );
         dispatch(deleteProductSuccess(id));

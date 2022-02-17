@@ -16,8 +16,6 @@ export default function Home({products}) {
     const [showModal, setShowModal] = useState(false)
     const [title, setTitle] = useState("")
 
-    const dispatch=useDispatch()
-    dispatch(getProductSuccess(products))
 
     const handleClick = (e) => {
         setTitle(e.target.value);

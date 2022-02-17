@@ -9,7 +9,7 @@ const Aanbiedingen = () => {
         const getProducts = async () => {
             try{
                 const res = await axios.get(
-                    process.env.VERCEL_URL+`/api/products`
+                    `/api/products`
                 );
                 setProducts(res.data);
 
