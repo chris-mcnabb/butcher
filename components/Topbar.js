@@ -5,7 +5,7 @@ import steak from "../public/img/steak.jpeg"
 import Link from "next/link"
 import { signOut } from "next-auth/react"
 import React from "react";
-//import {logoutUser} from "../../redux/apiCalls";
+
 
 export default function Topbar() {
 
@@ -24,7 +24,7 @@ export default function Topbar() {
                 </div>
                 <div className={styles.topRight}>
                     <div className={styles.topbarIconContainer}>
-                        <Link passHref="/admin/newproduct">
+                        <Link href="/admin/newproduct">
                             <button className={styles.productAddButton2}>Nieuw</button>
                         </Link>
                         <button className={styles.logoutButton}>

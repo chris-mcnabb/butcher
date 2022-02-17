@@ -21,7 +21,7 @@ const AdminModal = ({showModal, setShowModal, title, size, path, id}) => {
     const handleDelete = async(e) => {
         e.preventDefault()
         try{
-            const res = await axios.delete(`http://localhost:3000/api/${path}/${id}`)
+            const res = await axios.delete(process.env.VERCEL_URL+`/api/${path}/${id}`)
             setResponseMessage(res.data.status)
 
         }catch(err){

@@ -44,7 +44,7 @@ session: {
     secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
         async jwt(token, user) {
-
+            console.log("auth token location", token)
             if (user?.accessToken) {
                 token.accessToken = user.accessToken;
             }

@@ -32,12 +32,12 @@ const Product = () => {
         updateProduct(dispatch, productId, inputs);
 
        if(response === "Product Updated") {
-            router.replace('/admin/products');
+            router.push('/admin/products');
         }
     }
     const handleCancel = (e) => {
         e.preventDefault()
-        router.replace("/admin/products")
+        router.push("/admin/products")
     }
 
     return (
@@ -100,7 +100,7 @@ export const getServerSideProps = async (context) =>{
 
 
     const session = await getSession({req: context.req})
-    const res = await axios.get(`/api/products/`);
+    const res = await axios.get(process.env.VERCEL_URL+`/api/products/`);
     if (!session) {
         return {
             redirect: {

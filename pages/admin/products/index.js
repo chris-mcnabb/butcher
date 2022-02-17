@@ -2,7 +2,7 @@ import { DataGrid } from "@material-ui/data-grid";
 import styles from "../../../styles/ProductList.module.css"
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
-import {withRouter} from "next/router";
+import {useRouter} from "next/router";
 import Link from "next/link";
 import Topbar from "../../../components/Topbar";
 import Sidebar from "../../../components/Sidebar";
@@ -17,8 +17,12 @@ import Head from "next/head";
 const ProductList = ({products}) => {
     const [showModal, setShowModal] = useState(false)
     const [productId, setProductId] = useState("")
+    const router=useRouter()
     const dispatch = useDispatch()
     dispatch(getProductSuccess(products))
+    const editProduct = (id) => {
+        router.push(`/admin/products/${id}`)
+    }
     const handleDelete = (id) => {
         setProductId(id)
         setShowModal(true);
@@ -55,9 +59,12 @@ const ProductList = ({products}) => {
             renderCell: (params) => {
                 return (
                     <>
-                        <Link passHref={"/admin/products/[id]"} as={`/admin/products/${params.row._id}`}>
-                           <Edit className={styles.productListEdit}/>
-                        </Link>
+
+                         <Edit className={styles.productListEdit}
+                               onClick={()=>editProduct(params.row._id)}
+
+                         />
+
                         <DeleteOutline
                             className={styles.productListDelete}
                             onClick={() => handleDelete(params.row._id)}
@@ -99,11 +106,12 @@ const ProductList = ({products}) => {
 };
 export const getServerSideProps = async (context) =>{
     const session = await getSession({req: context.req})
-    const res = await axios.get("/api/products");
+    const res = await axios.get(process.env.VERCEL_URL+"/api/products");
     if (!session) {
         return {
             redirect: {
-                destination: '/admin/',
+                destination: '/admin/',   //removed trailing slash feb17
+
                 permanent: false,
             },
         };
@@ -118,4 +126,4 @@ export const getServerSideProps = async (context) =>{
 };
 
 
-export default withRouter(ProductList);
+export default ProductList;

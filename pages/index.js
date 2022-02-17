@@ -67,7 +67,7 @@ export default function Home({products}) {
   )
 }
 export const getInitialProps = async () => {
-    const res = await axios.get("/api/products");
+    const res = await axios.get(process.env.VERCEL_URL+`/api/products`);
     return {
         props: {
             products: res.data,

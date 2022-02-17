@@ -9,6 +9,7 @@ import {getSession} from "next-auth/react";
 import Head from "next/head";
 const Message = () => {
     const {asPath} = useRouter()
+    const router = useRouter();
     const messageId = asPath.split("/")[3]
     const message =  useSelector((state)=>state.mail.messages.find((message)=>message._id === messageId));
     return (
@@ -26,9 +27,11 @@ const Message = () => {
 
                 <div className={styles.mailTitleContainer}>
                     <h1 className={styles.mailTitle}>Email</h1>
-                    <Link passHref="/admin/messages">
-                        <button className={styles.messageDeleteButton} value="delete">Terug</button>
-                    </Link>
+
+                        <button className={styles.messageDeleteButton} value="delete"
+                                onClick={()=>router.push("/admin/messages")}
+                        >Terug</button>
+
                 </div>
 
 

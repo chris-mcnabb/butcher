@@ -23,7 +23,7 @@ import axios from "axios";
 export const addProduct = async (product, dispatch) => {
     dispatch(addProductStart());
     try{
-        const res = await axios.post(`/api/products/`, product)
+        const res = await axios.post( "/api/products/", product)
 
         dispatch(addProductSuccess(res.data))
         console.log(res.data)
@@ -52,7 +52,7 @@ export const updateProduct = async (dispatch, id, product) => {
 export const deleteMessage = async (id, dispatch) => {
     dispatch(deleteMailStart());
     try{
-        const res = await axios.delete(`http://localhost:3000/api/mail/${id}`,
+        const res = await axios.delete(`/api/mail/${id}`,
 
         );
         dispatch(deleteMailSuccess(id));
@@ -66,7 +66,7 @@ export const deleteMessage = async (id, dispatch) => {
 export const deleteProduct = async (id, dispatch) => {
     dispatch(deleteProductStart());
     try{
-        const res = await axios.delete(`http://localhost:3000/api/products/${id}`,
+        const res = await axios.delete(process.env.VERCEL_URL+`/api/products/${id}`,
 
         );
         dispatch(deleteProductSuccess(id));

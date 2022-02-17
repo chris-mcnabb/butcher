@@ -109,11 +109,11 @@ const NewProduct = () => {
 };
 export const getServerSideProps = async (context) =>{
     const session = await getSession({req: context.req})
-    const res = await axios.get("http://localhost:3000/api/products");
+    const res = await axios.get(process.env.VERCEL_URL+"/api/products");
     if (!session) {
         return {
             redirect: {
-                destination: '/admin/',
+                destination: '/admin/', //removed trailing slash fe17
                 permanent: false,
             },
         };

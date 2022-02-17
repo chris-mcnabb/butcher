@@ -35,7 +35,7 @@ const Login = () => {
 
 
             });
-            !res.error && router.push("/admin/products")
+            !res.error && await router.push("/admin/products")
         }catch(err){
             console.log(err)
         }
@@ -68,8 +68,8 @@ const Login = () => {
 
 
 export const getInitialProps = async () => {
-    const res = await axios.get("/api/products");
-    const message = await axios.get("/api/mail");
+    const res = await axios.get(process.env.VERCEL_URL+"/api/products");
+    const message = await axios.get(process.env.VERCEL_URL+"/api/mail");
     return {
         props: {
             products: res.data,

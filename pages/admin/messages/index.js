@@ -1,6 +1,7 @@
 import { DataGrid } from "@material-ui/data-grid";
 import styles from "../../../styles/MessageList.module.css"
 import {useDispatch} from "react-redux";
+import {useRouter} from "next/router";
 import Link from "next/link"
 import Topbar from "../../../components/Topbar";
 import Sidebar from "../../../components/Sidebar";
@@ -16,6 +17,7 @@ const MessageList = ({messages}) => {
     const [showModal, setShowModal] = useState(false)
     const [messageId, setMessageId] = useState("")
     const dispatch = useDispatch()
+    const router = useRouter();
     dispatch(getMailSuccess(messages))
     const handleDelete = (id) => {
         setMessageId(id)
@@ -48,9 +50,11 @@ const MessageList = ({messages}) => {
             renderCell: (params) => {
                 return (
                     <>
-                        <Link passHref={"/admin/messages/" + params.row._id}>
-                           <MailOutlined className={styles.mailListEdit}/>
-                        </Link>
+
+                           <MailOutlined className={styles.mailListEdit}
+                           onClick={()=>router.push(`/admin/messages/${params.row._id}`)}
+                           />
+
                    <DeleteOutline className={styles.mailListDelete} onClick={() => handleDelete(params.row._id)}/>
                     </>
                 );
@@ -86,7 +90,7 @@ const MessageList = ({messages}) => {
 };
 export const getServerSideProps = async (context) =>{
     const session = await getSession({req: context.req})
-    const message = await axios.get("/api/mail");
+    const message = await axios.get(process.env.VERCEL_URL+"/api/mail");
     if (!session) {
         return {
             redirect: {
