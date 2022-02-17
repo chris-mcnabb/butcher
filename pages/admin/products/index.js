@@ -1,6 +1,6 @@
 import { DataGrid } from "@material-ui/data-grid";
 import styles from "../../../styles/ProductList.module.css"
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {useRouter} from "next/router";
 import Link from "next/link";
@@ -14,12 +14,25 @@ import AdminModal from "../../../components/AdminModal";
 import Head from "next/head";
 
 
-const ProductList = ({products}) => {
+const ProductList = () => {
     const [showModal, setShowModal] = useState(false)
     const [productId, setProductId] = useState("")
+    const [products, setProducts] = useState([])
     const router=useRouter()
     const dispatch = useDispatch()
     dispatch(getProductSuccess(products))
+    useEffect(()=>{
+        const getProducts = async() => {
+            try{
+                const res = await axios.get(`/api/products/`)
+
+                setProducts(res.data)
+            }catch(err){
+                console.log(err)
+            }
+        }
+        getProducts()
+    },[])
     const editProduct = (id) => {
         router.push(`/admin/products/${id}`)
     }
@@ -106,7 +119,6 @@ const ProductList = ({products}) => {
 };
 export const getServerSideProps = async (context) =>{
     const session = await getSession({req: context.req})
-    const res = await axios.get(process.env.VERCEL_URL+"/api/products");
     if (!session) {
         return {
             redirect: {
@@ -120,7 +132,7 @@ export const getServerSideProps = async (context) =>{
     return{
         props:{
             session,
-            products: res.data,
+
         }
     };
 };
