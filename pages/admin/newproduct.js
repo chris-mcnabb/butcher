@@ -109,7 +109,7 @@ const NewProduct = () => {
 };
 export const getServerSideProps = async (context) =>{
     const session = await getSession({req: context.req})
-    const res = await axios.get(process.env.VERCEL_URL+"/api/products");
+
     if (!session) {
         return {
             redirect: {
@@ -122,7 +122,7 @@ export const getServerSideProps = async (context) =>{
     return{
         props:{
             session,
-            products: res.data,
+
         }
     };
 };
