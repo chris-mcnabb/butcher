@@ -6,7 +6,6 @@ import Topbar from "../../../components/Topbar";
 import Sidebar from "../../../components/Sidebar";
 import {getSession} from "next-auth/react";
 import {updateProduct} from "../../../redux/apiCalls"
-import axios from "axios";
 import Head from "next/head";
 
 const Product = () => {
@@ -100,7 +99,7 @@ export const getServerSideProps = async (context) =>{
 
 
     const session = await getSession({req: context.req})
-    const res = await axios.get(process.env.VERCEL_URL+`/api/products/`);
+
     if (!session) {
         return {
             redirect: {
@@ -113,7 +112,7 @@ export const getServerSideProps = async (context) =>{
     return{
         props:{
             session,
-            product: res.data,
+
         }
     };
 };
