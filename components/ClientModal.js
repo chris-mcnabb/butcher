@@ -36,9 +36,9 @@ const ClientModal = ({showModal, setShowModal, title, size}) => {
                         </div>
                         <div className={styles.bottom} size={size}>
 
-                            {title === "Over Ons" && <OverOns/>}
-                            {title === "Assortiment" && <Menu />}
-                            {title === "Aanbiedingen" && <Aanbiedingen/>}
+                            {title === "Over Ons" && <OverOns showModal={showModal} setShowModal={setShowModal}/>}
+                            {title === "Assortiment" && <Menu showModal={showModal} setShowModal={setShowModal}/>}
+                            {title === "Aanbiedingen" && <Aanbiedingen showModal={showModal} setShowModal={setShowModal}/>}
 
                         </div>
                     </div>

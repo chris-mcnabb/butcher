@@ -1,7 +1,7 @@
 import styles from "../styles/OverOns.module.css"
 import {useState} from "react";
 import axios from "axios"
-const OverOns = () => {
+const OverOns = ({showModal, setShowModal}) => {
     const [error, setError] = useState(false)
     const [isActive, setIsActive] = useState(false);
     const [value, setValue] = useState({
@@ -44,10 +44,10 @@ const OverOns = () => {
 
     }
 
-
+        //onClick={()=> setShowModal(!showModal)}
     return (
 
-        <div className={styles.container}>
+        <div className={styles.container} onClick={()=> setShowModal(!showModal)}>
             <div className={styles.leftWrapper}>
                 {!isActive && <div>
                     {error && <h2 style={{color: "red", textAlign: "center"}}>Something went wrong.  Please try again.</h2>}

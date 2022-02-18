@@ -2,7 +2,7 @@ import styles from "../styles/Aanbiedingen.module.css"
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-const Aanbiedingen = () => {
+const Aanbiedingen = ({showModal, setShowModal}) => {
 
     const [products, setProducts] = useState([]);
     useEffect(()=>{
@@ -22,7 +22,7 @@ const Aanbiedingen = () => {
 
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} onClick={()=> setShowModal(!showModal)}>
 
             <div className={styles.wrapper}>
                 <div className={styles.top}>
