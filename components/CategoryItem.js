@@ -19,7 +19,7 @@ const CategoryItem = ({category, products}) => {
                                 {item.Aanbiedingen && <h3 className={styles.special}>**Aanbiedingen**</h3>}
                                 <div className={styles.priceContainer}>
                                         <span className={styles.price}
-                                              style={{color: "white"}}><b>Price: </b>€{item.price.toFixed(2)}</span>
+                                              style={{color: "white"}}>€{item.price.toFixed(2)}</span>
                                     <span className={styles.price} style={{color: "white"}}>per {item.per}</span>
                                 </div>
 

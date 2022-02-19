@@ -47,7 +47,7 @@ const ProductList = () => {
             width: 200,
             renderCell: (params) => {
                 return (
-                    <div className="productListItem">
+                    <div className={styles.productListItem}>
                         {params.row.title}
                     </div>
                 );
@@ -60,8 +60,27 @@ const ProductList = () => {
             width: 120,
         },
         {field: "per", headerName: "Per", valueFormatter: ({value})=>`per ${value}`, width: 100},
-        { field: "inStock", headerName: "Stock", width: 120 },
-        { field: "Aanbiedingen", headerName: "Aanbiedingen", width: 120 },
+        { field: "inStock", headerName: "Stock", width: 120,
+
+            renderCell: (params) => {
+            if(params.row.inStock) {
+                return <div>Ja</div>
+            }
+            if(!params.row.inStock){
+                return <div>Nee</div>
+            }
+            },
+        },
+        { field: "Aanbiedingen", headerName: "Aanbiedingen", width: 120,
+            renderCell: (params) => {
+                if(params.row.Aanbiedingen) {
+                    return <div>Ja</div>
+                }
+                if(!params.row.Aanbiedingen){
+                    return <div>Nee</div>
+                }
+            },
+        },
 
 
         {
