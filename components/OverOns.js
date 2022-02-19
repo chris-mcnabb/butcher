@@ -47,7 +47,7 @@ const OverOns = ({showModal, setShowModal}) => {
         //onClick={()=> setShowModal(!showModal)}
     return (
 
-        <div className={styles.container} onClick={()=> setShowModal(!showModal)}>
+        <div className={styles.container} >
             <div className={styles.leftWrapper}>
                 {!isActive && <div>
                     {error && <h2 style={{color: "red", textAlign: "center"}}>Something went wrong.  Please try again.</h2>}
@@ -100,7 +100,7 @@ const OverOns = ({showModal, setShowModal}) => {
                 {isActive &&
                     <div className={styles.success}><h1 style={{textAlign: "center"}}>Bedankt!!  Je bericht is verzonden.</h1></div>}
             </div>
-            <div className={styles.rightWrapper} >
+            <div className={styles.rightWrapper} onClick={()=> setShowModal(!showModal)}>
 
                 <p>
                     Omdat er in Chaam geen fatsoenlijk stukje vlees te verkrijgen is ben ik daarin voor mezelf begonnen.

@@ -24,8 +24,8 @@ const ClientModal = ({showModal, setShowModal, title, size}) => {
             {showModal ? (
                 <div className={styles.container}>
 
-                    <div className={styles.wrapper}>
-                        <div className={styles.top}>
+                    <div className={styles.wrapper} >
+                        <div className={styles.top} onClick={()=> setShowModal(!showModal)}>
                             <div onClick={handleClick} className={styles.terug}>
                                 <button className={styles.modalButton}>
                                     <ArrowBack style={{color: "white", marginRight: "10px", fontSize: "35px !important"}}/>
