@@ -64,7 +64,7 @@ export default function Home({products}) {
           </>
   )
 }
-export const getInitialProps = async () => {
+export const getServerSideProps = async () => {
     const res = await axios.get(process.env.VERCEL_URL+`/api/products`);
     return {
         props: {
