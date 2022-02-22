@@ -67,7 +67,7 @@ const Login = () => {
 };
 
 
-export const getServerSideProps = async () => {
+export const getInitialProps = async () => {
     const res = await axios.get(process.env.VERCEL_URL+"/api/products");
     const message = await axios.get(process.env.VERCEL_URL+"/api/mail");
     return {
