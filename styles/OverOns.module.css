@@ -15,7 +15,7 @@
 }
 .rightWrapper {
     flex: 1;
-    max-height: 300px;
+    min-height: 400px;
     width: 100%;
     padding: 20px 30px;
     border-radius: 10px;
@@ -105,21 +105,26 @@
     text-align: center;
 
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 850px) {
     .container{
         width: 100vw;
         height: 100vh;
-        justify-content: center;
+
+
+
     }
     .leftWrapper{
-        margin-right: 0;
+        margin: 0;
         text-align: center;
         width: 80%;
         height: 80%;
         background-color: rgba(119, 136, 153, 0.8);
+        justify-content: center;
+
     }
     .rightWrapper{
         display: none;
+
 
     }
     .title {
