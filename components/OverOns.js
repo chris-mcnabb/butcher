@@ -44,7 +44,7 @@ const OverOns = ({showModal, setShowModal}) => {
 
     }
 
-        //onClick={()=> setShowModal(!showModal)}
+
     return (
 
         <div className={styles.container} >
