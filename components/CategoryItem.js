@@ -15,7 +15,7 @@ const CategoryItem = ({category, products}) => {
                     {products.map((item) => (
                         item.categories.includes(category) && <>
                             <li className={styles.productContainer}>
-                                <h3 className={styles.itemTitle} style={{color: "white"}}>{item.title}</h3>
+                                <h3 className={styles.itemTitle} style={{color: "white"}}>{item.title.charAt(0).toUpperCase() + item.title.slice(1)}</h3>
                                 {item.Aanbiedingen && <h3 className={styles.special}>**Aanbiedingen**</h3>}
                                 <div className={styles.priceContainer}>
                                         <span className={styles.price}

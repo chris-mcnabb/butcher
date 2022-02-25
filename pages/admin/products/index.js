@@ -48,7 +48,7 @@ const ProductList = () => {
             renderCell: (params) => {
                 return (
                     <div className={styles.productListItem}>
-                        {params.row.title}
+                        {params.row.title.charAt(0).toUpperCase() + params.row.title.slice(1)}
                     </div>
                 );
             },

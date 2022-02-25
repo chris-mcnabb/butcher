@@ -32,7 +32,7 @@ const Aanbiedingen = ({showModal, setShowModal}) => {
                     { products.map((product)=>(
                         product.Aanbiedingen ? <>
                             <li className={styles.productContainer}>
-                                <h3 className={styles.itemTitle} style={{color: "white"}}>{product.title}</h3>
+                                <h3 className={styles.itemTitle} style={{color: "white"}}>{product.title.charAt(0).toUpperCase() + product.title.slice(1)}</h3>
                                 <div>
                                     <span className={styles.price} style={{color: "white"}}><b>Price: </b>€{product.price.toFixed(2)}</span>
                                     <span  className={styles.price} style={{color: "white"}}>per {product.per}</span>
