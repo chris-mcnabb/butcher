@@ -50,6 +50,9 @@
     border-radius: 7px;
     border: 1px solid lightgray;
 }
+.addProductItem:nth-child(2) > input{
+    border: none;
+}
 .addProductItem > input:focus {
     outline: none;
     border: 1px solid darkgray;

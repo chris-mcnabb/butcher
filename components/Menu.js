@@ -36,7 +36,7 @@ const Menu = ({showModal, setShowModal}) => {
 
                 {
                     category !== "" &&
-                    <div className={styles.right} onClick={handleClick}>
+                    <div className={styles.right}>
                         <CategoryItem category={category} products={products}/>
                     </div>
                 }

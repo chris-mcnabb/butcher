@@ -1,6 +1,6 @@
 import styles from "../styles/CategoryItem.module.css"
+import Link from 'next/link'
 
-import {useSelector} from "react-redux";
 
 const CategoryItem = ({category, products}) => {
 
@@ -14,6 +14,7 @@ const CategoryItem = ({category, products}) => {
                 <ul className={styles.itemContainer}>
                     {products.map((item) => (
                         item.categories.includes(category) && <>
+                            <Link href={`/product/${item._id}`}>
                             <li className={styles.productContainer}>
                                 <h3 className={styles.itemTitle} style={{color: "white"}}>{item.title.charAt(0).toUpperCase() + item.title.slice(1)}</h3>
                                 {item.Aanbiedingen && <h3 className={styles.special}>**Aanbiedingen**</h3>}
@@ -24,6 +25,7 @@ const CategoryItem = ({category, products}) => {
                                 </div>
 
                             </li>
+                            </Link>
                         </>
                     ))}
                 </ul>

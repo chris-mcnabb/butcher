@@ -35,7 +35,7 @@
     align-items: center;
     list-style: none;
     margin-bottom: 20px;
-
+    cursor: pointer;
     width: calc(100% / 2);
 }
 .priceContainer {

@@ -5,8 +5,11 @@ import styles from "../../../styles/Product.module.css"
 import Topbar from "../../../components/Topbar";
 import Sidebar from "../../../components/Sidebar";
 import {getSession} from "next-auth/react";
-import {updateProduct} from "../../../redux/apiCalls"
+import {addProduct, updateProduct} from "../../../redux/apiCalls"
 import Head from "next/head";
+import Image from "next/image"
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import app from "../../../util/firebase"
 
 const Product = () => {
 
@@ -16,6 +19,7 @@ const Product = () => {
     const {response} = useSelector((state)=>state.product)
     const product =  useSelector((state)=>state.product.products.find((product)=>product._id === productId));
     const [inputs, setInputs] = useState({});
+    const [file, setFile] = useState(null)
 
     const router = useRouter()
 
@@ -28,11 +32,58 @@ const Product = () => {
     };
     const handleUpdate = (e) => {
         e.preventDefault()
-        updateProduct(dispatch, productId, inputs);
+        if(file){
+            const fileName = new Date().getTime() + file.name;
+            const storage = getStorage(app);
+            const storageRef = ref(storage, fileName)
+            const uploadTask = uploadBytesResumable(storageRef, file);
+            uploadTask.on('state_changed',
+                (snapshot) => {
+                    // Observe state change events such as progress, pause, and resume
+                    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    console.log('Upload is ' + progress + '% done');
+                    switch (snapshot.state) {
+                        case 'paused':
+                            console.log('Upload is paused');
+                            break;
+                        case 'running':
+                            console.log('Upload is running');
+                            break;
+                        default:
+                    }
+                },
+                (error) => {
+                    // Handle unsuccessful uploads
+                },
+                () => {
+                    // Handle successful uploads on complete
+                    // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+                    getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+                        if(inputs){
+                            const product = {...inputs, img: downloadURL};
+                           await updateProduct(dispatch, productId, product);
+                        }else{
+                            const product = {img: downloadURL};
+                            await updateProduct(dispatch, productId, product);
+                        }
+                        if(response === "Product Updated") {
+                            await router.push('/admin/products');
+                        }
 
-       if(response === "Product Updated") {
-            router.push('/admin/products');
+
+                    });
+                }
+            );
+        }else{
+            updateProduct(dispatch, productId, inputs);
+
+            if(response === "Product Updated") {
+                router.push('/admin/products');
+            }
         }
+
+
     }
     const handleCancel = (e) => {
         e.preventDefault()
@@ -60,7 +111,16 @@ const Product = () => {
               <div className={styles.productFormLeft}>
               <label>Producten</label>
               <input type="text" placeholder={product.title} name="title"  onChange={handleChange} />
-              <label>Prijs</label>
+
+                      <label>Image</label>
+                      <input
+                          type="file"
+                          id="file"
+                          accept=".png,.jpeg,.jpg"
+                          onChange={(e) => setFile(e.target.files[0])} />
+
+
+                  <label>Prijs</label>
               <input type="text" placeholder={`€${product.price.toFixed(2)}`}  name="price" onChange={handleChange} />
               <label>In Stock</label>
               <select name="inStock" id="idStock" onChange={handleChange} >
@@ -84,8 +144,19 @@ const Product = () => {
               </select>
               </div>
               <div className={styles.productFormRight}>
-              <button className={styles.productButton} onClick={handleUpdate}>Update</button>
-              <button className={styles.productButton} style={{backgroundColor: "red"}} onClick={handleCancel}>Annuleer</button>
+                  <div className={styles.rightTop}>
+                      {
+                          product.img ?
+                              <Image src={product.img} alt="" height={200} width={200}/>
+                              : null
+
+                      }
+                  </div>
+                  <div className={styles.rightBottom}>
+                      <button className={styles.productButton} onClick={handleUpdate}>Update</button>
+                      <button className={styles.productButton} style={{backgroundColor: "red"}} onClick={handleCancel}>Annuleer</button>
+                  </div>
+
               </div>
               </form>
               </div>
