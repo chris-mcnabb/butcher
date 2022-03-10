@@ -6,7 +6,7 @@ import axios from "axios";
 const Menu = ({showModal, setShowModal}) => {
     const [category, setCategory] = useState("")
     const [products, setProducts] = useState([])
-    useEffect(()=>{
+   useEffect(()=>{
         const getProducts = async() => {
             try{
                 const res = await axios.get(`/api/products/`)

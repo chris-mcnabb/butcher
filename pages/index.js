@@ -24,7 +24,7 @@ export default function Home({products}) {
 
   return (
       <>
-          <ClientModal showModal={showModal} setShowModal={setShowModal} title={title}/>
+          <ClientModal showModal={showModal} setShowModal={setShowModal} title={title} products={products}/>
 
           <div className={styles.container}>
         <Image src={steak2}

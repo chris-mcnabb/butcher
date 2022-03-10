@@ -8,7 +8,7 @@ import {useDispatch} from "react-redux";
 import {getProductSuccess} from "../redux/productRedux";
 import axios from "axios";
 
-const ClientModal = ({showModal, setShowModal, title, size}) => {
+const ClientModal = ({showModal, setShowModal, title, size, products}) => {
 
 
 
@@ -37,7 +37,7 @@ const ClientModal = ({showModal, setShowModal, title, size}) => {
                         <div className={styles.bottom} size={size}>
 
                             {title === "Over Ons" && <OverOns showModal={showModal} setShowModal={setShowModal}/>}
-                            {title === "Assortiment" && <Menu showModal={showModal} setShowModal={setShowModal}/>}
+                            {title === "Assortiment" && <Menu showModal={showModal} setShowModal={setShowModal} products={products}/>}
                             {title === "Aanbiedingen" && <Aanbiedingen showModal={showModal} setShowModal={setShowModal}/>}
 
                         </div>
