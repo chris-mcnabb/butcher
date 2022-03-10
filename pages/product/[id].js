@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "../../styles/ProductPage.module.css"
 import Image from "next/image";
 import Navbar from "../../components/Navbar";
-import steak from "../../public/img/hamburger.jpeg"
+
 import axios from "axios";
 import {ArrowBack} from "@material-ui/icons";
 import {useRouter} from "next/router";
