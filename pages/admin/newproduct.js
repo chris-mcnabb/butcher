@@ -28,7 +28,16 @@ const NewProduct = () => {
     };
 
     const handleCat = (e) => {
-        setCat((e.target.value.split(",")))
+          if(cat.length === 0){
+              setCat(prev=>[...prev, e.target.value])
+          }
+          if(cat.length > 0){
+              setCat(cat.filter((item, index)=>cat[index] !== e.target.value))
+              setCat(prev=>[...prev, e.target.value])
+
+          }
+
+
     };
     const handleClick = async (e) => {
         e.preventDefault()
@@ -65,7 +74,9 @@ const NewProduct = () => {
                     // Handle successful uploads on complete
                     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
                     getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-                        const product = {...inputs, categories: cat, img: downloadURL};
+                        const title = inputs.title.charAt(0).toUpperCase() + item.title.slice(1)
+                        const product = {...inputs,  categories: cat, img: downloadURL};
+                       console.log(product)
                         try {
                             await addProduct(product, dispatch)
                             if (!error) {
@@ -93,7 +104,7 @@ const NewProduct = () => {
             }
         }
     }
-    console.log(file)
+    console.log(cat)
     return (
        <>
        <Topbar/>
@@ -137,7 +148,15 @@ const NewProduct = () => {
                        </div>
                        <div className={styles.addProductItem}>
                            <label>Categories</label>
-                           <input type="text" placeholder="cat,cat" name="categories" required onChange={handleCat}/>
+
+                           <select name="category"required onChange={handleCat} >
+                               <option value=""></option>
+                               <option value="BBQ">BBQ</option>
+                               <option value="Kip">Kip</option>
+                               <option value="Vlees">Vlees</option>
+                               <option value="Diversen">Diversen</option>
+                           </select>
+
                        </div>
                        <div className={styles.addProductItem}>
                            <label>Stock</label>
